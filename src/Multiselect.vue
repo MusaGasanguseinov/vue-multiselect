@@ -55,7 +55,7 @@
           v-if="!searchable"
           class="multiselect__single"
           @mousedown.prevent="toggle"
-          v-text="currentOptionLabel">
+          v-html="currentOptionLabel">
         </span>
       </div>
       <transition name="multiselect">
