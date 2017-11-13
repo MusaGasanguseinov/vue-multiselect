@@ -6,6 +6,7 @@
     @blur="searchable ? false : deactivate()"
     @keydown.self.down.prevent="pointerForward()"
     @keydown.self.up.prevent="pointerBackward()"
+    @keydown.enter.stop.self="addPointerElement($event)"
     @keydown.enter.tab.stop.self="addPointerElement($event)"
     @keyup.esc="deactivate()"
     class="multiselect">
@@ -48,10 +49,11 @@
           :tabindex="tabindex"
           @input="updateSearch($event.target.value)"
           @focus.prevent="activate()"
-          @blur.prevent="deactivate()"
+          @blur.prevent="tabSelect"
           @keyup.esc="deactivate()"
           @keydown.down.prevent="pointerForward()"
           @keydown.up.prevent="pointerBackward()"
+          @keydown.tab.self="addPointerElement($event)"
           @keydown.enter.prevent.stop.self="addPointerElement($event)"
           @keydown.delete.stop="removeLastElement()"
           class="multiselect__input"/>
@@ -328,6 +330,20 @@
       },
       showSearchInput () {
         return this.searchable && (this.hasSingleSelectedSlot && (this.visibleSingleValue || this.visibleSingleValue === 0) ? this.isOpen : true)
+      }
+    },
+
+    methods: {
+      /**
+       * When select with Tab key
+       * emit blur-event after that.
+       *
+       * @fires this#addPointerElement || this#addPointerElement
+       * @fires this#deactivate || this#deactivate
+      */
+      tabSelect () {
+        this.addPointerElement({key: 'Tab'})
+        this.deactivate()
       }
     }
   }

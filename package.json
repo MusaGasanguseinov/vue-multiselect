@@ -2,6 +2,28 @@
   "name": "vue-multiselect",
   "version": "2.1.0",
   "private": false,
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shentao/vue-multiselect/issues"
+  },
+  "homepage": "https://shentao.github.io/vue-multiselect/",
+  "main": "dist/vue-multiselect.min.js",
+  "unpkg": "dist/vue-multiselect.min.js",
+  "jsnext:main": "dist/vue-multiselect.min.js",
+  "files": [
+    "dist",
+    "src",
+    "lib"
+  ],
+  "jspm": {
+    "main": "dist/vue-multiselect.min.js",
+    "registry": "npm",
+    "format": "esm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/105th/vue-multiselect.git"
+  },
   "scripts": {
     "test": "vue-cli-service test",
     "lint": "eslint --ext .js,.vue src tests/unit/specs",
