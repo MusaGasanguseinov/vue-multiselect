@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shentao/vue-multiselect.git"
+    "url": "git+https://github.com/Andrey-Yartsev/vue-multiselect.git"
   },
   "scripts": {
     "dev": "node build/dev-server.js",
