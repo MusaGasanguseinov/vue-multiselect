@@ -6,6 +6,7 @@
     @blur="searchable ? false : deactivate()"
     @keydown.self.down.prevent="pointerForward()"
     @keydown.self.up.prevent="pointerBackward()"
+    @keydown.enter.stop.self="addPointerElement($event)"
     @keydown.enter.tab.stop.self="addPointerElement($event)"
     @keyup.esc="deactivate()"
     class="multiselect">
@@ -48,7 +49,7 @@
           @keyup.esc="deactivate()"
           @keydown.down.prevent="pointerForward()"
           @keydown.up.prevent="pointerBackward()"
-          @keydown.enter.prevent.stop.self="addPointerElement($event)"
+          @keydown.enter.tab.prevent.stop.self="addPointerElement($event)"
           @keydown.delete.stop="removeLastElement()"
           class="multiselect__input"/>
         <span
