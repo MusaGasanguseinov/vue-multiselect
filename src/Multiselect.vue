@@ -49,14 +49,15 @@
           @keyup.esc="deactivate()"
           @keydown.down.prevent="pointerForward()"
           @keydown.up.prevent="pointerBackward()"
-          @keydown.enter.tab.prevent.stop.self="addPointerElement($event)"
+          @keydown.tab.self="addPointerElement($event)"
+          @keydown.enter.prevent.stop.self="addPointerElement($event)"
           @keydown.delete.stop="removeLastElement()"
           class="multiselect__input"/>
         <span
           v-if="!searchable"
           class="multiselect__single"
           @mousedown.prevent="toggle"
-          v-html="currentOptionLabel">
+          v-text="currentOptionLabel">
         </span>
       </div>
       <transition name="multiselect">
@@ -80,9 +81,6 @@
                   v-if="!(option && (option.$isLabel || option.$isDisabled))"
                   :class="optionHighlight(index, option)"
                   @click.stop="select(option)"
-                  @touchstart="handleTouchStart"
-                  @touchmove="handleTouchMove"
-                  @touchend.prevent="handleTouchEnd(index, option)"
                   @mouseenter.self="pointerSet(index)"
                   :data-select="option && option.isTag ? tagPlaceholder : selectLabelText"
                   :data-selected="selectedLabelText"
