@@ -45,7 +45,7 @@
           :tabindex="tabindex"
           @input="updateSearch($event.target.value)"
           @focus.prevent="activate()"
-          @blur.prevent="addPointerElement({key: 'Tab'})"
+          @blur.prevent="tabSelect"
           @keyup.esc="deactivate()"
           @keydown.down.prevent="pointerForward()"
           @keydown.up.prevent="pointerBackward()"
@@ -271,6 +271,20 @@
         } else {
           return this.prefferedOpenDirection === 'above'
         }
+      }
+    },
+
+    methods: {
+      /**
+       * When select with Tab key
+       * emit blur-event after that.
+       *
+       * @fires this#addPointerElement || this#addPointerElement
+       * @fires this#deactivate || this#deactivate
+      */
+      tabSelect() {
+        addPointerElement({key: 'Tab'})
+        deactivate()
       }
     }
   }
