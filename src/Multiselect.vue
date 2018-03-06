@@ -282,9 +282,9 @@
        * @fires this#addPointerElement || this#addPointerElement
        * @fires this#deactivate || this#deactivate
       */
-      tabSelect() {
-        addPointerElement({key: 'Tab'})
-        deactivate()
+      tabSelect () {
+        this.addPointerElement({key: 'Tab'})
+        this.deactivate()
       }
     }
   }
