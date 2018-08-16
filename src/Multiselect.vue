@@ -49,7 +49,7 @@
           :tabindex="tabindex"
           @input="updateSearch($event.target.value)"
           @focus.prevent="activate()"
-          @blur.prevent="tabSelect"
+          @blur.prevent="deactivate()"
           @keyup.esc="deactivate()"
           @keydown.down.prevent="pointerForward()"
           @keydown.up.prevent="pointerBackward()"
@@ -330,20 +330,6 @@
       },
       showSearchInput () {
         return this.searchable && (this.hasSingleSelectedSlot && (this.visibleSingleValue || this.visibleSingleValue === 0) ? this.isOpen : true)
-      }
-    },
-
-    methods: {
-      /**
-       * When select with Tab key
-       * emit blur-event after that.
-       *
-       * @fires this#addPointerElement || this#addPointerElement
-       * @fires this#deactivate || this#deactivate
-      */
-      tabSelect () {
-        this.addPointerElement({key: 'Tab'})
-        this.deactivate()
       }
     }
   }
